@@ -12,7 +12,7 @@ type Limiter struct {
 	count int64
 }
 
-func NewLimiter(num int64) *Limiter {
+func New(num int64) *Limiter {
 	l := &Limiter{
 		num: num,
 		ch:  make(chan struct{}, num),

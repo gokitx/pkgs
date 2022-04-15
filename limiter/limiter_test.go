@@ -8,7 +8,7 @@ import (
 )
 
 func TestLimiter_Allow(t *testing.T) {
-	l := NewLimiter(3e3)
+	l := New(3e3)
 	for i := 0; i < 1e4; i++ {
 		l.Allow()
 		fmt.Println("left", l.Left())

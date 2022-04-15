@@ -15,3 +15,22 @@ func RevemoRepByMap[T comparable](v []T) []T {
 	}
 	return r
 }
+
+func ContainsIn[T comparable](v []T, sub T,
+	f ...func(T, T) bool) bool {
+	if len(f) != 0 {
+		for _, vv := range v {
+			if f[0](vv, sub) {
+				return true
+			}
+		}
+		return false
+	}
+
+	for _, vv := range v {
+		if vv == sub {
+			return true
+		}
+	}
+	return false
+}
