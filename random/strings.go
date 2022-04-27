@@ -10,10 +10,15 @@ var (
 	UpperLetterSeeds = []byte("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 	LowerLetterSeeds = []byte("abcdefghijklmnopqrstuvwxyz")
 	PunctuationSeeds = []byte("!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~")
+	Hexadecimal      = []byte("0123456789abcfefABCDEF")
 )
 
 func RandomString(length int) string {
 	return randomString(append(append(DigitSeeds, UpperLetterSeeds...), LowerLetterSeeds...), length)
+}
+
+func RandHexadecimal(length int) string {
+	return randomString(Hexadecimal, length)
 }
 
 func RandomDigitString(length int) string {

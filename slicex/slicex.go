@@ -1,4 +1,4 @@
-package slices
+package slicex
 
 func RevemoRepByMap[T comparable](v []T) []T {
 	state := make(map[T]struct{})
