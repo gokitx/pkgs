@@ -34,3 +34,11 @@ func ContainsIn[T comparable](v []T, sub T,
 	}
 	return false
 }
+
+// Clone returns a copy of the given slice.
+func Clone[T any](s []T) []T {
+	if s == nil {
+		return nil
+	}
+	return append([]T{}, s...)
+}
