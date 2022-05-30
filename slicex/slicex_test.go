@@ -16,6 +16,17 @@ func TestRevemoRepByMap(t *testing.T) {
 	t.Log(RevemoRepByMap(v3))
 }
 
+func TestRevemoRepWithSort(t *testing.T) {
+	v1 := []int{1, 1, 2, 2, 2, 3, 4}
+	t.Log(RevemoRepWithSort(v1))
+
+	v2 := []float32{1.1, 1.1, 2, 2.2, 2, 3, 4}
+	t.Log(RevemoRepWithSort(v2))
+
+	v3 := []string{"a", "a", "c", "d", "b", "e"}
+	t.Log(RevemoRepWithSort(v3))
+}
+
 func TestContainsIn(t *testing.T) {
 	v1 := []int{1, 1, 2, 2, 2, 3, 4}
 	t.Log(ContainsIn(v1, 2))

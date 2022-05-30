@@ -42,3 +42,22 @@ func Clone[T any](s []T) []T {
 	}
 	return append([]T{}, s...)
 }
+
+func RevemoRepWithSort[T comparable](v []T) []T {
+	length := len(v)
+	if length == 0 {
+		return v
+	}
+
+	var j int
+	for i := 1; i < length; i++ {
+		if v[i] != v[j] {
+			j++
+			if j < i {
+				v[i], v[j] = v[j], v[i]
+			}
+		}
+	}
+
+	return v[:j+1]
+}
