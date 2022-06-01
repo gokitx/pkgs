@@ -13,6 +13,10 @@ var (
 	Hexadecimal      = []byte("0123456789abcfefABCDEF")
 )
 
+func init() {
+	rand.Seed(time.Now().UnixNano())
+}
+
 func RandomString(length int) string {
 	return randomString(append(append(DigitSeeds, UpperLetterSeeds...), LowerLetterSeeds...), length)
 }
@@ -30,11 +34,9 @@ func RandomStringWithSeeds(length int, seeds []byte) string {
 }
 
 func randomString(seeds []byte, length int) string {
-	r := rand.New(rand.NewSource(time.Now().UnixNano()))
-
 	slice := make([]byte, length, length)
 	for i := 0; i < length; i++ {
-		slice[i] = seeds[r.Intn(len(seeds))]
+		slice[i] = seeds[rand.Int63()%int64(len(seeds))]
 	}
 	return string(slice)
 }
