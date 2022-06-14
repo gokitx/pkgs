@@ -49,15 +49,16 @@ func RevemoRepWithSort[T comparable](v []T) []T {
 		return v
 	}
 
-	var j int
-	for i := 1; i < length; i++ {
-		if v[i] != v[j] {
-			j++
-			if j < i {
-				v[i], v[j] = v[j], v[i]
+	r := make([]T, 0)
+	for i := range v {
+		for j := range r {
+			if v[i] == r[j] {
+				goto Next
 			}
 		}
+		r = append(r, v[i])
+	Next:
 	}
 
-	return v[:j+1]
+	return r
 }

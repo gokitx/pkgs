@@ -25,6 +25,9 @@ func TestRevemoRepWithSort(t *testing.T) {
 
 	v3 := []string{"a", "a", "c", "d", "b", "e"}
 	t.Log(RevemoRepWithSort(v3))
+
+	v4 := []string{"a", "b", "c", "d", "b", "a", "a"}
+	t.Log(RevemoRepWithSort(v4))
 }
 
 func TestContainsIn(t *testing.T) {
